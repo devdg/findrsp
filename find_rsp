@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+    void *rsp_value;
+
+    // Inline assembly to obtain the value of RSP
+    asm volatile ("mov %%rsp, %0" : "=r" (rsp_value));
+
+    // Print the address stored in the RSP register
+    printf("The address of RSP is: %p\n", rsp_value);
+
+    return 0;
+}
